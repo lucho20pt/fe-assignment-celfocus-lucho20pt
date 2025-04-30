@@ -6,7 +6,6 @@ import '@/index.css'
 
 // Create a QueryClient instance
 const queryClient = new QueryClient()
-console.log(queryClient)
 
 createRoot(document.getElementById('root') as HTMLElement).render(
   <StrictMode>
