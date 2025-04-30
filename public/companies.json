@@ -1,0 +1,50 @@
+{
+  "Company1": {
+    "FormFields": [
+      {
+        "Label": "Nome Colaborador",
+        "Type": "text",
+        "Validation": { "required": true }
+      },
+      { "Label": "Email", "Type": "email", "Validation": { "required": true } },
+      {
+        "Label": "Nº de Empregado",
+        "Type": "text",
+        "Validation": { "required": true, "pattern": "^[a-zAZ0-9]{7}$" }
+      }
+    ]
+  },
+  "Company2": {
+    "FormFields": [
+      {
+        "Label": "Nome Cliente",
+        "Type": "text",
+        "Validation": { "required": true }
+      },
+      { "Label": "Email", "Type": "email", "Validation": { "required": true } },
+      {
+        "Label": "Data do Pedido",
+        "Type": "date",
+        "Validation": { "required": true }
+      },
+      { "Label": "Comentário", "Type": "textarea" }
+    ]
+  },
+  "Company3": {
+    "FormFields": [
+      { "Label": "NIF", "Type": "number", "Validation": { "required": true } },
+      {
+        "Label": "Telemóvel",
+        "Type": "number",
+        "Validation": { "required": true }
+      },
+      { "Label": "Email", "Type": "email", "Validation": { "required": true } },
+      {
+        "Label": "Departamentos",
+        "Type": "multiselect",
+        "Options": ["Human Resources", "Finance", "IT"],
+        "Validation": { "required": true }
+      }
+    ]
+  }
+}
