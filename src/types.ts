@@ -21,8 +21,8 @@
 
 import { z } from 'zod'
 
-// Define the schema for FormField
-export const FormFieldSchema = z.object({
+// Define the schema for FormFieldType
+export const FormFieldTypeSchema = z.object({
   /**
    * Label: The label for the form field (e.g., "Name", "Email").
    * Type: The type of the form field, restricted to specific values (e.g., 'text', 'email').
@@ -46,17 +46,17 @@ export const CompanyConfigSchema = z.record(
     /**
      * FormFields: An array of form fields that define the structure of a company's form configuration.
      */
-    FormFields: z.array(FormFieldSchema),
+    FormFields: z.array(FormFieldTypeSchema), // Use the renamed schema here
   })
 )
 
 // Infer types from zod schemas
 /**
- * FormField:
- * - Inferred from FormFieldSchema.
+ * FormFieldType:
+ * - Inferred from FormFieldTypeSchema.
  * - Represents the structure of a single form field.
  */
-export type FormField = z.infer<typeof FormFieldSchema>
+export type FormFieldType = z.infer<typeof FormFieldTypeSchema> // Rename the inferred type
 
 /**
  * CompanyConfig:
@@ -64,6 +64,7 @@ export type FormField = z.infer<typeof FormFieldSchema>
  * - Represents the structure of the company configuration, where each key is a company name
  *   and the value is an object containing an array of form fields.
  */
+// Note: CompanyConfig now implicitly uses FormFieldType via FormFieldTypeSchema.
 export type CompanyConfig = z.infer<typeof CompanyConfigSchema>
 
 //
@@ -75,5 +76,5 @@ export type CompanyConfig = z.infer<typeof CompanyConfigSchema>
 // }
 
 // export interface CompanyConfig {
-//   [key: string]: { FormFields: FormField[] }
+//   [key: string]: { FormFields: FormFieldType[] } // Update comment if needed
 // }
