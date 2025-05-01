@@ -43,7 +43,8 @@ const Companies: React.FC = () => {
       {selectedCompany && selectedCompanyFormFields && (
         <DynamicForm
           key={selectedCompany}
-          // formFields={selectedCompanyFormFields}
+          selectedCompany={selectedCompany}
+          formFields={selectedCompanyFormFields}
         /> // Use key to reset form state on company change
       )}
     </section>
