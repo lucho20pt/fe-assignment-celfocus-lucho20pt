@@ -89,7 +89,9 @@ const DynamicForm = ({ selectedCompany, formFields }: DynamicFormProps) => {
         try {
           const regex = new RegExp(field.Validation.pattern)
           zodType = zodType.regex(regex, {
-            message: `Invalid format for ${field.Label}`,
+            // Use specific patternDescription if provided, otherwise use generic message
+            message:
+              field.Validation.patternDescription ?? `Invalid format for ${field.Label}`,
           })
         } catch (error) {
           console.error(

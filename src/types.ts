@@ -38,6 +38,7 @@ export const FormFieldTypeSchema = z.object({
     .object({
       required: z.boolean().optional(),
       pattern: z.string().optional(),
+      patternDescription: z.string().optional(),
     })
     .optional(),
   Options: z.array(z.string()).optional(),
