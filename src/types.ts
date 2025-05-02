@@ -30,7 +30,7 @@ export const FormFieldTypeSchema = z.object({
    * Options: Optional array of string options for fields like dropdowns or multiselects.
    */
   Label: z.string(),
-  Type: z.enum(['text', 'email', 'number', 'date', 'textarea', 'multiselect']),
+  Type: z.enum(['text', 'email', 'number', 'date', 'textarea', 'select']),
   Validation: z
     .object({
       required: z.boolean().optional(),

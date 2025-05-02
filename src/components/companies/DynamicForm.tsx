@@ -66,7 +66,7 @@ const DynamicForm = ({ selectedCompany, formFields }: DynamicFormProps) => {
           // Basic string validation for date, can be enhanced
           zodType = z.string()
           break
-        case 'multiselect':
+        case 'select':
         case 'textarea':
         case 'text':
         default:
@@ -157,7 +157,7 @@ const DynamicForm = ({ selectedCompany, formFields }: DynamicFormProps) => {
                       placeholder={`Enter ${fieldConfig.Label}`}
                       {...field}
                     />
-                  ) : fieldConfig.Type === 'multiselect' ? ( // Render as single Select for now
+                  ) : fieldConfig.Type === 'select' ? (
                     <Select
                       onValueChange={field.onChange}
                       defaultValue={field.value}
