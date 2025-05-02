@@ -1,4 +1,4 @@
-import Header from '@/components/layout/header'
+import Header from '@/components/layout/Header'
 import Companies from '@/components/companies/Companies'
 
 function App() {
