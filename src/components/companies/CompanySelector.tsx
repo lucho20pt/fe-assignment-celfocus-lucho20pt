@@ -19,7 +19,10 @@ const CompanySelector = ({
 }: CompanySelectorProps) => {
   return (
     <Select onValueChange={onSelectCompany} value={selectedCompany}>
-      <SelectTrigger className="w-[180px] cursor-pointer">
+      <SelectTrigger
+        className="w-[180px] cursor-pointer"
+        aria-label="Select a Company"
+      >
         <SelectValue placeholder="Select a Company" />
       </SelectTrigger>
       <SelectContent>
