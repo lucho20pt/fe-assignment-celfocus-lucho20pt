@@ -4,6 +4,15 @@ import DynamicForm from '@/components/companies/DynamicForm'
 
 import useCompanyConfig from '@/hooks/useCompanyConfig'
 
+/**
+ * Orchestrates the display and interaction for selecting a company and viewing its dynamic form.
+ *
+ * Fetches company configuration data using `useCompanyConfig`.
+ * Renders a `CompanySelector` to choose a company.
+ * Manages the state for the currently selected company.
+ * Conditionally renders the `DynamicForm` component with the appropriate configuration for the selected company.
+ */
+
 const Companies: React.FC = () => {
   const [selectedCompany, setSelectedCompany] = React.useState<string>('') // Store the key/name of the selected company
   const { data: configData, isLoading, isError, error } = useCompanyConfig()
