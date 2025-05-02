@@ -29,6 +29,7 @@ This project is a solution for the Celfocus Frontend Developer technical challen
 *   **`src\components\companies\`**:
     *   **`Companies.tsx`**: The main orchestrating component. It uses `useCompanyConfig` to get data, manages the selected company state, and renders `CompanySelector` and `DynamicForm`. Handles loading and error states.
     *   **`CompanySelector.tsx`**: A reusable component displaying the company selection dropdown. Includes `aria-label` for accessibility.
+    *
     *   **`DynamicForm.tsx`**: The core component responsible for:
         *   Receiving `formFields` configuration.
         *   Dynamically generating the Zod validation schema using `React.useMemo`.
@@ -36,7 +37,7 @@ This project is a solution for the Celfocus Frontend Developer technical challen
         *   Integrating `react-hook-form` with the dynamic schema via `zodResolver`.
         *   Mapping field configurations to appropriate `shadcn/ui` input components (`Input`, `Textarea`, `Select`).
         *   Handling `required` and `pattern` validation logic.
-        *   Using `generateFieldName` for robust internal field naming.
+        *   Using `generateFieldName` for robust internal field naming and `patternDescription` from config for clearer validation messages.
 *   **`src\components\ui\`**: Contains the reusable UI components provided by `shadcn/ui`.
 
 ## Implemented Practices & Patterns
