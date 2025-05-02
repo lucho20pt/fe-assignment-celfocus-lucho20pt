@@ -1,17 +1,14 @@
-import { Button } from '@/components/ui/button'
+import Header from '@/components/layout/header'
+import Companies from '@/components/companies/Companies'
 
 function App() {
-  const HandleButtonClick = () => {
-    console.log('Button clicked')
-  }
-
   return (
-    <section className="flex flex-col items-center justify-center h-screen gap-10">
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      <Button onClick={HandleButtonClick} className="cursor-pointer">
-        Click me
-      </Button>
-    </section>
+    <div className="flex flex-col items-center justify-start h-screen gap-10 text-accent-foreground">
+      <Header />
+      <main className="flex flex-col items-center justify-center gap-10">
+        <Companies />
+      </main>
+    </div>
   )
 }
 
