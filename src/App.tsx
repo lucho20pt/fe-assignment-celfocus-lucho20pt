@@ -1,11 +1,14 @@
+import Header from '@/components/layout/header'
 import Companies from '@/components/companies/Companies'
 
 function App() {
   return (
-    <main className="flex flex-col items-center justify-center h-screen gap-10">
-      <h1 className="text-3xl font-bold underline">Celfocus Companies</h1>
-      <Companies />
-    </main>
+    <div className="flex flex-col items-center justify-start h-screen gap-10 text-accent-foreground">
+      <Header />
+      <main className="flex flex-col items-center justify-center gap-10">
+        <Companies />
+      </main>
+    </div>
   )
 }
 
