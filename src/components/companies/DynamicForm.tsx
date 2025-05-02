@@ -30,6 +30,20 @@ interface DynamicFormProps {
   formFields: FormFieldType[]
 }
 
+/**
+ * Renders a dynamic form based on a configuration provided via `formFields`.
+ *
+ * Features:
+ * - Dynamically generates a Zod validation schema and default values.
+ * - Uses react-hook-form for state management and validation via zodResolver.
+ * - Renders appropriate shadcn/ui input components based on field type.
+ * - Handles required fields and pattern validation.
+ * - Uses generated field names for robustness.
+ *
+ * @param selectedCompany The identifier for the currently selected company (used for context in submission).
+ * @param formFields An array defining the structure and validation for each form field.
+ */
+
 const DynamicForm = ({ selectedCompany, formFields }: DynamicFormProps) => {
   // --- Dynamically build the Zod schema ---
   const formSchema = React.useMemo(() => {
