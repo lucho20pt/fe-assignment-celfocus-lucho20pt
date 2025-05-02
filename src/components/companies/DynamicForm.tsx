@@ -59,8 +59,23 @@ const DynamicForm = ({ selectedCompany, formFields }: DynamicFormProps) => {
           zodType = z.string().email({ message: 'Invalid email address' })
           break
         case 'number':
-          // Coerce to number, as input value is string
-          zodType = z.coerce.number()
+          if (field.Validation?.required) {
+            zodType = z
+              .string({
+                // Message if the initial value is null/undefined
+                required_error: `${field.Label} is required`,
+              })
+              .min(1, { message: `${field.Label} is required` }) // Message if the string is ""
+              .pipe(
+                z.coerce.number({
+                  // Message if coercion fails (e.g., input is "abc")
+                  invalid_type_error: `${field.Label} must be a number`,
+                })
+              )
+          } else {
+            // For optional numbers: Allow empty string, map it to undefined, then coerce & make optional.
+            zodType = z.string().transform((val) => (val === '' ? undefined : val)).pipe(z.coerce.number().optional())
+          }
           break
         case 'date':
           // Basic string validation for date, can be enhanced
@@ -74,12 +89,12 @@ const DynamicForm = ({ selectedCompany, formFields }: DynamicFormProps) => {
           break
       }
 
-      // Apply required validation
+      // Apply required validation (Primary check for strings, handled within 'number' case now)
       if (field.Validation?.required) {
-        if (zodType instanceof z.ZodString) {
+        // Apply min(1) to string-based types *unless* it's handled above (like number)
+        if (zodType instanceof z.ZodString && field.Type !== 'number') {
           zodType = zodType.min(1, { message: `${field.Label} is required` })
         }
-        // Add checks for other types if needed (e.g., number > 0)
       } else {
         zodType = zodType.optional()
       }
