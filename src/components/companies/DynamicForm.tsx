@@ -91,7 +91,8 @@ const DynamicForm = ({ selectedCompany, formFields }: DynamicFormProps) => {
           zodType = zodType.regex(regex, {
             // Use specific patternDescription if provided, otherwise use generic message
             message:
-              field.Validation.patternDescription ?? `Invalid format for ${field.Label}`,
+              field.Validation.patternDescription ??
+              `Invalid format for ${field.Label}`,
           })
         } catch (error) {
           console.error(
@@ -131,6 +132,7 @@ const DynamicForm = ({ selectedCompany, formFields }: DynamicFormProps) => {
     console.log(`Form submitted for ${selectedCompany}:`, data)
     // TODO: Add logic to handle form submission (e.g., API call)
     // ✅ This will be type-safe and validated.
+    form.reset() // Reset form after submission
   }
 
   return (
