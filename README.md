@@ -97,3 +97,7 @@ This will start the Vite development server, typically available at `http://loca
 **Configuration File:**
 
 The application expects the form configuration to be present in `public/companhias.json`. Ensure this file exists and is structured according to the schema defined in `src\types.ts`.
+
+## License
+
+This project is proprietary and all rights are reserved by lucho20pt. Unauthorized use, copying, modification, or distribution of this software is strictly prohibited.
